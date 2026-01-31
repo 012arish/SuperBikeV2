@@ -129,8 +129,28 @@
 }
 
 @media (max-width: 768px) {
+    .hero {
+        align-items: flex-start;
+        padding-top: 0;
+    }
+
+    .hero-content {
+        padding-top: 180px !important;
+        /* Significantly increased spacing + force override */
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        width: 100%;
+        margin-top: 2rem;
+        /* Extra push via margin */
+    }
+
     .hero-title {
         font-size: 3rem;
+        margin-top: 1rem;
+    }
+
+    .hero-label {
+        margin-bottom: 1rem;
     }
 
     .hero-actions {

@@ -21,7 +21,7 @@ const BikeCard = ({ bike }) => {
                         <h3 className="bike-title">
                             {bike.name}
                         </h3>
-                        <div className="bike-price">${bike.price.toLocaleString()}</div>
+                        <div className="bike-price">₹{bike.price.toLocaleString()}</div>
                     </div>
 
                     <div className="bike-specs">

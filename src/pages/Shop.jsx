@@ -24,7 +24,7 @@ const Shop = ({ searchQuery = '' }) => {
     const [filters, setFilters] = useState({
         categories: [],
         brands: [],
-        priceRange: { min: 0, max: 50000 },
+        priceRange: { min: 0, max: 5000000 },
         engineSizes: []
     });
 
@@ -48,7 +48,7 @@ const Shop = ({ searchQuery = '' }) => {
     const mockBikes = Array(8).fill(null).map((_, i) => ({
         id: `mock-${i + 1}`,
         name: i % 2 === 0 ? 'Ducati Panigale V4' : 'Kawasaki Ninja ZX-10R',
-        price: 15500 + (i * 2000),
+        price: 1550000 + (i * 200000),
         image: i % 2 === 0 ? 'https://images.unsplash.com/photo-1615172282427-9a5752d358cd?w=800&q=80' : 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?w=800&q=80',
         year: 2020 + (i % 4),
         type: i % 2 === 0 ? 'Supersport' : 'Track',

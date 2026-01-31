@@ -8,6 +8,7 @@ import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
 import Sell from './pages/Sell';
 import Placeholder from './pages/Placeholder';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <ThemeProvider>
       <ListingsProvider>
+        <ScrollToTop />
         <Layout searchQuery={searchQuery} onSearchChange={setSearchQuery}>
           <Routes>
             <Route path="/" element={<Home />} />

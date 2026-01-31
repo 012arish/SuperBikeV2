@@ -54,7 +54,7 @@ const ProductDetail = () => {
         // Mock data fallback
         id,
         name: 'Ducati Panigale V4 S',
-        price: 28500,
+        price: 3450000,
         images: [
             'https://images.unsplash.com/photo-1615172282427-9a5752d358cd?w=1200&q=80',
             'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=1200&q=80',
@@ -77,13 +77,13 @@ const ProductDetail = () => {
     };
 
     const handleWhatsApp = () => {
-        const message = encodeURIComponent(`Hi, I'm interested in the ${bike.name} listed for $${bike.price.toLocaleString()} on Velocita. Is it still available?`);
+        const message = encodeURIComponent(`Hi, I'm interested in the ${bike.name} listed for ₹${bike.price.toLocaleString()} on Velocita. Is it still available?`);
         window.open(`https://wa.me/?text=${message}`, '_blank');
     };
 
     const handleEmail = () => {
         const subject = encodeURIComponent(`Inquiry: ${bike.name}`);
-        const body = encodeURIComponent(`Hi,\n\nI'm interested in the ${bike.name} listed for $${bike.price.toLocaleString()} on Velocita.\n\nPlease provide more details regarding its availability and condition.\n\nThanks.`);
+        const body = encodeURIComponent(`Hi,\n\nI'm interested in the ${bike.name} listed for ₹${bike.price.toLocaleString()} on Velocita.\n\nPlease provide more details regarding its availability and condition.\n\nThanks.`);
         window.location.href = `mailto:sales@velocita.com?subject=${subject}&body=${body}`;
     };
 
@@ -113,7 +113,7 @@ const ProductDetail = () => {
                         </div>
                         <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: '1.1' }}>{bike.name}</h1>
                         <div className="product-price-tag">
-                            ${bike.price.toLocaleString()}
+                            ₹{bike.price.toLocaleString()}
                         </div>
 
                         <div style={{ display: 'flex', gap: '1rem', marginBottom: '2.5rem', flexDirection: 'column' }}>

@@ -7,7 +7,7 @@ const Filters = ({ onFilterChange, activeFilters }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
-    const [priceRange, setPriceRange] = useState({ min: 0, max: 50000 });
+    const [priceRange, setPriceRange] = useState({ min: 0, max: 5000000 });
     const [selectedEngineSizes, setSelectedEngineSizes] = useState([]);
 
     // Lock body scroll when mobile filters are open
@@ -94,7 +94,7 @@ const Filters = ({ onFilterChange, activeFilters }) => {
 
     // Slider constants
     const MIN = 0;
-    const MAX = 50000;
+    const MAX = 5000000;
 
     const handlePriceChange = (e, type) => {
         const inputValue = e.target.value;
@@ -153,9 +153,9 @@ const Filters = ({ onFilterChange, activeFilters }) => {
         let newRange = { ...priceRange };
 
         if (type === 'min') {
-            newRange.min = Math.min(value, priceRange.max - 500); // 500 gap
+            newRange.min = Math.min(value, priceRange.max - 10000); // 10000 gap for INR
         } else {
-            newRange.max = Math.max(value, priceRange.min + 500); // 500 gap
+            newRange.max = Math.max(value, priceRange.min + 10000); // 10000 gap for INR
         }
 
         setPriceRange(newRange);
@@ -180,12 +180,12 @@ const Filters = ({ onFilterChange, activeFilters }) => {
     const resetFilters = () => {
         setSelectedCategories([]);
         setSelectedBrands([]);
-        setPriceRange({ min: 0, max: 50000 });
+        setPriceRange({ min: 0, max: 5000000 });
         setSelectedEngineSizes([]);
         onFilterChange({
             categories: [],
             brands: [],
-            priceRange: { min: 0, max: 50000 },
+            priceRange: { min: 0, max: 5000000 },
             engineSizes: []
         });
         setIsOpen(false); // Close mobile menu if open
@@ -271,7 +271,7 @@ const Filters = ({ onFilterChange, activeFilters }) => {
                             type="number"
                             value={(priceRange.max === MAX || priceRange.max === '') ? '' : priceRange.max}
                             onChange={(e) => handlePriceChange(e, 'max')}
-                            placeholder="50000"
+                            placeholder="5000000"
                         />
                     </div>
                 </div>

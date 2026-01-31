@@ -28,7 +28,7 @@ const Home = () => {
         {
             id: 1,
             name: 'Ducati Panigale V4 S',
-            price: 28500,
+            price: 3450000,
             image: 'https://images.unsplash.com/photo-1615172282427-9a5752d358cd?w=800&q=80',
             year: 2023,
             type: 'Supersport',
@@ -40,7 +40,7 @@ const Home = () => {
         {
             id: 2,
             name: 'Yamaha MT-10 SP',
-            price: 16800,
+            price: 1650000,
             image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?w=800&q=80',
             year: 2022,
             type: 'Naked',
@@ -52,7 +52,7 @@ const Home = () => {
         {
             id: 3,
             name: 'BMW S1000RR',
-            price: 19500,
+            price: 2400000,
             image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&q=80',
             year: 2021,
             type: 'Supersport',
@@ -64,7 +64,7 @@ const Home = () => {
         {
             id: 4,
             name: 'Kawasaki ZX-10R',
-            price: 17900,
+            price: 1850000,
             image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&q=80',
             year: 2022,
             type: 'Supersport',

@@ -215,10 +215,10 @@ const Sell = () => {
 
                         <div className="form-row">
                             <div className="form-group">
-                                <label>Price ($) *</label>
+                                <label>Price (₹) *</label>
                                 <input
                                     type="number"
-                                    placeholder="0.00"
+                                    placeholder="0"
                                     value={formData.price}
                                     onChange={(e) => updateFormData('price', e.target.value)}
                                     className={errors.price ? 'input-error' : ''}
@@ -395,7 +395,7 @@ const Sell = () => {
                                 </div>
                                 <div className="summary-item">
                                     <span className="summary-label">Price</span>
-                                    <span className="summary-value">${formData.price || '0'}</span>
+                                    <span className="summary-value">₹{formData.price || '0'}</span>
                                 </div>
                                 <div className="summary-item">
                                     <span className="summary-label">Year</span>
