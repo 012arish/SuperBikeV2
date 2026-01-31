@@ -1,0 +1,287 @@
+/* Parallax Styles - Reference Match */
+.parallax-container {
+    position: relative;
+    height: 750px;
+    /* Increased significantly for Ducati */
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #0c0c0c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Background Text */
+/* Background Text */
+.parallax-text-layer {
+    position: absolute;
+    top: 50%;
+    /* Re-center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    /* Animation applied here */
+}
+
+.parallax-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    /* Allow text to spill if needed */
+}
+
+.svg-text {
+    font-size: 350px;
+    /* Massive SVG font size relative to viewBox 2000x750 */
+    font-weight: 900;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-style: italic;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    /* Fill is handled by inline style url(#id) */
+}
+
+
+
+/* Slider Controls */
+.slider-nav {
+    position: absolute;
+    bottom: 25px;
+    left: 40px;
+    z-index: 50;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: white;
+    color: black;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 50;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: white;
+}
+
+.parallax-bike-layer {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    /* Bike on top */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    mix-blend-mode: normal;
+    /* RESET: Don't blend the whole container */
+}
+
+.hero-bike-img {
+    width: 65vw;
+    max-width: 1000px;
+    height: auto;
+    object-fit: contain;
+    /* 
+       'screen' mode effectively removes the black background. 
+       We reduce the contrast filter so the bike doesn't look "fried".
+       We add a drop-shadow.
+    */
+    mix-blend-mode: screen;
+    filter: brightness(1.1) saturate(1.1) drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+    transition: transform 0.1s ease-out;
+}
+
+
+
+/* Top Left Label with Red Bar */
+.info-badge {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 20;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-badge::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 24px;
+    background-color: #DC2626;
+    /* Red bar */
+    border-radius: 2px;
+}
+
+/* Star Icon Decoration */
+.star-deco {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    color: #555;
+    /* Darker star as per reference subtle look */
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .parallax-container {
+        border-radius: 0;
+        margin: 0;
+        width: 100%;
+        height: 70vh;
+    }
+
+    .parallax-title {
+        font-size: 20vw;
+    }
+
+    .hero-bike-img {
+        width: 90vw;
+    }
+
+    .title-left {
+        margin-right: 0;
+    }
+
+    .title-right {
+        margin-left: 0;
+    }
+
+}
+
+/* Animations - Continuous Flow */
+
+/* BIKE: Left -> Right (Continuous Smooth Curve) */
+@keyframes bikeFlow {
+    0% {
+        transform: translate(-130%, -50%);
+        /* Start Left */
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-40%, -50%);
+        /* Drift past center to Right */
+        opacity: 1;
+    }
+}
+
+@keyframes bikeExit {
+    0% {
+        transform: translate(-40%, -50%);
+        /* Resume from drift point */
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(150%, -50%);
+        /* Exit Right */
+        opacity: 0;
+    }
+}
+
+/* TEXT: Right -> Left (Continuous Smooth Curve) */
+@keyframes textFlow {
+    0% {
+        transform: translate(80%, -50%);
+        /* Start Right */
+        opacity: 0;
+        letter-spacing: 1vw;
+    }
+
+    100% {
+        transform: translate(-60%, -50%);
+        /* Drift past center to Left */
+        opacity: 1;
+        letter-spacing: -0.02em;
+    }
+}
+
+@keyframes textExit {
+    0% {
+        transform: translate(-60%, -50%);
+        /* Resume from drift point */
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-200%, -50%);
+        /* Exit Left */
+        opacity: 0;
+    }
+}
+
+/* Apply Animations */
+.parallax-bike-layer {
+    /* Fast entry, very slow tail = natural drift */
+    animation: bikeFlow 7s cubic-bezier(0.1, 0.7, 0.1, 1) forwards !important;
+}
+
+.parallax-bike-layer.exiting {
+    animation: bikeExit 0.8s cubic-bezier(0.5, 0, 0.2, 1) forwards !important;
+}
+
+.parallax-text-layer {
+    animation: textFlow 7s cubic-bezier(0.1, 0.7, 0.1, 1) forwards !important;
+}
+
+.parallax-text-layer.exiting {
+    animation: textExit 0.8s cubic-bezier(0.5, 0, 0.2, 1) forwards !important;
+}

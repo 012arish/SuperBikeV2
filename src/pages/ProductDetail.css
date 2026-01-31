@@ -1,0 +1,111 @@
+/* Product Page Styles */
+.product-header-section {
+    padding-top: 2rem;
+    margin-top: 12rem !important;
+    margin-bottom: 4rem;
+}
+
+.product-buy-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2.5rem;
+    position: sticky;
+    top: 100px;
+    box-shadow: var(--shadow-lg);
+}
+
+[data-theme='light'] .product-buy-box {
+    background: #FFFFFF;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+    border-color: #E2E8F0;
+}
+
+.product-price-tag {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.tech-specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.tech-spec-item {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.tech-spec-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.tech-spec-value {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+/* Grid Area Layout */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    grid-template-areas:
+        "gallery info"
+        "desc    info";
+}
+
+.product-gallery-area {
+    grid-area: gallery;
+}
+
+.product-desc-area {
+    grid-area: desc;
+}
+
+.product-info-area {
+    grid-area: info;
+}
+
+@media (max-width: 1024px) {
+    .product-header-section {
+        padding-top: 6rem;
+    }
+
+    .product-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .product-gallery-area {
+        order: 1;
+    }
+
+    .product-info-area {
+        order: 3;
+        /* Moved below desc */
+    }
+
+    .product-desc-area {
+        order: 2;
+        /* Moved above info */
+        margin-top: 1rem;
+    }
+
+    .product-buy-box {
+        position: relative;
+        top: 0;
+        padding: 1.5rem;
+    }
+}

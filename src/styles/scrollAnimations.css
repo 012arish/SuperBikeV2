@@ -1,0 +1,71 @@
+/* Global Scroll Animations */
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll animation variants */
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate-scale.in-view {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger delays for multiple elements */
+.scroll-animate:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.scroll-animate:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.scroll-animate:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.scroll-animate:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.scroll-animate:nth-child(5) {
+    transition-delay: 0.4s;
+}
+
+.scroll-animate:nth-child(6) {
+    transition-delay: 0.5s;
+}

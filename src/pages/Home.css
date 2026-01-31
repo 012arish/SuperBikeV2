@@ -1,0 +1,415 @@
+/* Scoped Styles for Home Page */
+
+.home-section-secondary {
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Why Choose Us - Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(21, 26, 35, 0.6) 0%, rgba(11, 14, 20, 0.8) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+    border-radius: 50%;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Light mode adjustments */
+[data-theme='light'] .feature-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .feature-card:hover {
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.15);
+}
+
+.view-all {
+    color: var(--accent-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-base);
+}
+
+.view-all:hover {
+    color: var(--accent-hover);
+    transform: translateX(4px);
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.trending-grid>* {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.trending-grid>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.trending-grid>*:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.trending-grid>*:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.trending-grid>*:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.trending-grid>*:nth-child(n+5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Popular Brands Grid */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.brand-card {
+    background: linear-gradient(135deg, rgba(21, 26, 35, 0.4) 0%, rgba(11, 14, 20, 0.6) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.brand-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.brand-card:hover::before {
+    opacity: 0.05;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.5px;
+}
+
+/* Light mode brands */
+[data-theme='light'] .brand-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='light'] .brand-card:hover {
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.12);
+}
+
+/* Premium CTA Box */
+.cta-box {
+    text-align: center;
+    padding: 5rem 2rem;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    /* Default dark mode gradient/glass */
+    background: linear-gradient(135deg, rgba(21, 26, 35, 0.9) 0%, rgba(11, 14, 20, 0.95) 100%);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle animated gradient border top */
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-magenta), transparent);
+    animation: shimmer 6s infinite;
+    opacity: 0.3;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Glowing orbs in background */
+.cta-box::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+[data-theme='light'] .cta-box {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 0, 0, 0.05);
+    /* Sharper black shadow */
+}
+
+/* Fix invisible button in light mode */
+[data-theme='light'] .cta-box .btn-primary {
+    background: var(--accent-primary);
+    color: #FFFFFF;
+    /* Force white text on red background */
+    border: none;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+[data-theme='light'] .cta-box .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+}
+
+.cta-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+    animation: slideInDown 0.6s ease 0.7s both;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.6s ease 0.9s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Enhanced button */
+.cta-box .btn-primary {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.cta-box .btn-primary:hover {
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 15px 40px rgba(220, 38, 38, 0.6),
+        0 0 20px rgba(220, 38, 38, 0.4);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .brand-card {
+        padding: 2rem 1rem;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-text {
+        font-size: 1rem;
+    }
+
+    .cta-box {
+        padding: 3rem 1.5rem;
+    }
+}
