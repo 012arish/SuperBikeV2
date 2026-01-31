@@ -132,6 +132,12 @@
     .hero {
         align-items: flex-start;
         padding-top: 0;
+        height: auto;
+        /* Allow growth */
+        min-height: 100vh;
+        /* Ensure it covers screen */
+        padding-bottom: 4rem;
+        /* Space for buttons */
     }
 
     .hero-content {
